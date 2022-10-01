@@ -6,7 +6,7 @@ const HomePage = () => {
     <>
       <MetaTags title="Home" description="Home page" />
 
-      <h1>Mendes website</h1>
+      <h1 className="bg-blue-500 p-10 text-center">Mendes website</h1>
       <p>
         Find me in <code>./web/src/pages/HomePage/HomePage.tsx</code>
       </p>
