@@ -25,7 +25,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
             log out
           </button>
 
-          <pre className="bg-red-300 p-2">{JSON.stringify(auth)}</pre>
+          <pre className="bg-red-300 p-2">{JSON.stringify(auth, null, 2)}</pre>
         </nav>
       </header>
       <main>{children}</main>

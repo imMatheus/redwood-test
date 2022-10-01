@@ -17,4 +17,26 @@ model User {
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
+  posts               Post[]
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @default(now()) @updatedAt
+}
+
+model Post {
+  id        Int       @id @default(autoincrement())
+  body      String
+  owner     User      @relation(fields: [userId], references: [id])
+  userId    Int
+  comments  Comment[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  body      String
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
