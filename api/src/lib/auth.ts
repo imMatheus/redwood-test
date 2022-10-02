@@ -27,7 +27,14 @@ export const getCurrentUser = async (session: Decoded) => {
 
   return await db.user.findUnique({
     where: { id: session.id },
-    select: { id: true, username: true, email: true, createdAt: true },
+    select: {
+      id: true,
+      username: true,
+      email: true,
+      createdAt: true,
+      resetToken: true,
+      resetTokenExpiresAt: true,
+    },
   })
 }
 
