@@ -6,7 +6,6 @@ import {
   FieldError,
   Label,
   TextField,
-  NumberField,
   Submit,
 } from '@redwoodjs/forms'
 import type { RWGqlError } from '@redwoodjs/forms'
@@ -54,22 +53,21 @@ const PostForm = (props: PostFormProps) => {
         <FieldError name="body" className="rw-field-error" />
 
         <Label
-          name="userId"
+          name="topic"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          User id
+          Topic
         </Label>
 
-        <NumberField
-          name="userId"
-          defaultValue={props.post?.userId}
+        <TextField
+          name="topic"
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
 
-        <FieldError name="userId" className="rw-field-error" />
+        <FieldError name="topic" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

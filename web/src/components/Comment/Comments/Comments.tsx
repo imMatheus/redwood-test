@@ -1,15 +1,13 @@
-import humanize from 'humanize-string'
+import type {
+  DeleteCommentMutationVariables,
+  FindComments,
+} from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Comment/CommentsCell'
-
-import type {
-  DeleteCommentMutationVariables,
-  FindComments,
-} from 'types/graphql'
 
 const DELETE_COMMENT_MUTATION = gql`
   mutation DeleteCommentMutation($id: Int!) {
@@ -21,27 +19,12 @@ const DELETE_COMMENT_MUTATION = gql`
 
 const MAX_STRING_LENGTH = 150
 
-const formatEnum = (values: string | string[] | null | undefined) => {
-  if (values) {
-    if (Array.isArray(values)) {
-      const humanizedValues = values.map((value) => humanize(value))
-      return humanizedValues.join(', ')
-    } else {
-      return humanize(values as string)
-    }
-  }
-}
-
 const truncate = (value: string | number) => {
   const output = value?.toString()
   if (output?.length > MAX_STRING_LENGTH) {
     return output.substring(0, MAX_STRING_LENGTH) + '...'
   }
   return output ?? ''
-}
-
-const jsonTruncate = (obj: unknown) => {
-  return truncate(JSON.stringify(obj, null, 2))
 }
 
 const timeTag = (datetime?: string) => {
@@ -52,10 +35,6 @@ const timeTag = (datetime?: string) => {
       </time>
     )
   )
-}
-
-const checkboxInputTag = (checked: boolean) => {
-  return <input type="checkbox" checked={checked} disabled />
 }
 
 const CommentsList = ({ comments }: FindComments) => {

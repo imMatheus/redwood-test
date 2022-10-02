@@ -30,10 +30,15 @@ describe('comments', () => {
 
   scenario('creates a comment', async (scenario: StandardScenario) => {
     const result = await createComment({
-      input: { body: 'String', postId: scenario.comment.two.postId },
+      input: {
+        body: 'String',
+        userId: scenario.comment.two.userId,
+        postId: scenario.comment.two.postId,
+      },
     })
 
     expect(result.body).toEqual('String')
+    expect(result.userId).toEqual(scenario.comment.two.userId)
     expect(result.postId).toEqual(scenario.comment.two.postId)
   })
 

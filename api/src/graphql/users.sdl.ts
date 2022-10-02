@@ -9,12 +9,13 @@ export const schema = gql`
     resetToken: String
     resetTokenExpiresAt: DateTime
     posts: [Post]!
+    comments: [Comment]!
     createdAt: DateTime!
     updatedAt: DateTime!
   }
 
   type Query {
-    users: [User!]! @skipAuth
+    users: [User!]! @requireAuth
     user(id: Int!): User @requireAuth
   }
 

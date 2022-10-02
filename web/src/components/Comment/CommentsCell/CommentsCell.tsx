@@ -11,8 +11,10 @@ export const QUERY = gql`
       id
       body
       postId
-      createdAt
-      updatedAt
+      userId
+      owner {
+        username
+      }
     }
   }
 `
@@ -35,5 +37,8 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ comments }: CellSuccessProps<FindComments>) => {
+  console.log('biaatc')
+  console.log(comments)
+
   return <Comments comments={comments} />
 }

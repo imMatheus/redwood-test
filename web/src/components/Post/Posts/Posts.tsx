@@ -82,6 +82,7 @@ const PostsList = ({ posts }: FindPosts) => {
           <tr>
             <th>Id</th>
             <th>Body</th>
+            <th>Topic</th>
             <th>User id</th>
             <th>Created at</th>
             <th>Updated at</th>
@@ -93,6 +94,7 @@ const PostsList = ({ posts }: FindPosts) => {
             <tr key={post.id}>
               <td>{truncate(post.id)}</td>
               <td>{truncate(post.body)}</td>
+              <td>{truncate(post.topic)}</td>
               <td>{truncate(post.userId)}</td>
               <td>{timeTag(post.createdAt)}</td>
               <td>{timeTag(post.updatedAt)}</td>

@@ -1,5 +1,4 @@
 import type { Prisma, Comment } from '@prisma/client'
-
 import type { ScenarioData } from '@redwoodjs/testing/api'
 
 export const standard = defineScenario<Prisma.CommentCreateArgs>({
@@ -7,13 +6,22 @@ export const standard = defineScenario<Prisma.CommentCreateArgs>({
     one: {
       data: {
         body: 'String',
+        owner: {
+          create: {
+            email: 'String4093920',
+            username: 'String3989350',
+            hashedPassword: 'String',
+            salt: 'String',
+          },
+        },
         post: {
           create: {
             body: 'String',
+            topic: 'String',
             owner: {
               create: {
-                email: 'String1351652',
-                username: 'String7572103',
+                email: 'String814736',
+                username: 'String6084762',
                 hashedPassword: 'String',
                 salt: 'String',
               },
@@ -25,13 +33,22 @@ export const standard = defineScenario<Prisma.CommentCreateArgs>({
     two: {
       data: {
         body: 'String',
+        owner: {
+          create: {
+            email: 'String8815343',
+            username: 'String7569082',
+            hashedPassword: 'String',
+            salt: 'String',
+          },
+        },
         post: {
           create: {
             body: 'String',
+            topic: 'String',
             owner: {
               create: {
-                email: 'String5310',
-                username: 'String5458841',
+                email: 'String667788',
+                username: 'String7729858',
                 hashedPassword: 'String',
                 salt: 'String',
               },

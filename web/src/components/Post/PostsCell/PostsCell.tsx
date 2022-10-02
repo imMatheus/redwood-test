@@ -10,9 +10,16 @@ export const QUERY = gql`
     posts {
       id
       body
-      userId
       createdAt
       updatedAt
+      userId
+      topic
+      owner {
+        username
+      }
+      comments {
+        body
+      }
     }
   }
 `
@@ -36,6 +43,7 @@ export const Failure = ({ error }: CellFailureProps) => (
 
 export const Success = ({ posts }: CellSuccessProps<FindPosts>) => {
   console.log('hello world')
+  console.log(posts)
 
   return <Posts posts={posts} />
 }

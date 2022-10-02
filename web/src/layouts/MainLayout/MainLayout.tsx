@@ -15,7 +15,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       <header>
         <h1>Redwood Blog</h1>
         <nav>
-          <ul>
+          <ul className="flex gap-2 p-3">
             <li>
               <Link to={routes.home()}>Home</Link>
             </li>
@@ -38,7 +38,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
             log out
           </button>
 
-          <pre className="bg-red-300 p-2">{JSON.stringify(auth, null, 2)}</pre>
+          <pre className="bg-red-300 p-2 text-sm">
+            {JSON.stringify(auth, null, 10)}
+          </pre>
         </nav>
       </header>
       <main>{children}</main>
