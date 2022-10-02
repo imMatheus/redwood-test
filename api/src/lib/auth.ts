@@ -32,8 +32,7 @@ export const getCurrentUser = async (session: Decoded) => {
       username: true,
       email: true,
       createdAt: true,
-      resetToken: true,
-      resetTokenExpiresAt: true,
+      bio: true,
     },
   })
 }

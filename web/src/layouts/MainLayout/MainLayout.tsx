@@ -17,8 +17,21 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         <nav>
           <ul>
             <li>
-              <Link to={routes.login()}>Home</Link>
+              <Link to={routes.home()}>Home</Link>
             </li>
+            <li>
+              <Link to={routes.comments()}>comments</Link>
+            </li>
+            <li>
+              <Link to={routes.posts()}>posts</Link>
+            </li>
+            {auth.isAuthenticated ? (
+              <button onClick={() => auth.logOut()}>logout</button>
+            ) : (
+              <li>
+                <Link to={routes.login()}>login</Link>
+              </li>
+            )}
           </ul>
 
           <button className="bg-blue-600 p-10" onClick={() => auth.logOut()}>

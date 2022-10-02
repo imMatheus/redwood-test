@@ -5,6 +5,7 @@ import type {
 } from 'types/graphql'
 
 import { db } from 'src/lib/db'
+// import { getCurrentUser } from 'src/lib/auth'
 
 export const comments: QueryResolvers['comments'] = () => {
   return db.comment.findMany()
@@ -19,8 +20,13 @@ export const comment: QueryResolvers['comment'] = ({ id }) => {
 export const createComment: MutationResolvers['createComment'] = ({
   input,
 }) => {
+  console.log(context.currentUser)
+
   return db.comment.create({
-    data: input,
+    data: {
+      ...input,
+      userId: context.currentUser.id,
+    },
   })
 }
 
