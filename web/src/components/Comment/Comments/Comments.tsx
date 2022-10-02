@@ -6,7 +6,10 @@ import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Comment/CommentsCell'
 
-import type { DeleteCommentMutationVariables, FindComments } from 'types/graphql'
+import type {
+  DeleteCommentMutationVariables,
+  FindComments,
+} from 'types/graphql'
 
 const DELETE_COMMENT_MUTATION = gql`
   mutation DeleteCommentMutation($id: Int!) {
@@ -36,7 +39,6 @@ const truncate = (value: string | number) => {
   }
   return output ?? ''
 }
-
 
 const jsonTruncate = (obj: unknown) => {
   return truncate(JSON.stringify(obj, null, 2))

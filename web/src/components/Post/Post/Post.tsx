@@ -81,16 +81,20 @@ const Post = ({ post }: Props) => {
             <tr>
               <th>Id</th>
               <td>{post.id}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>Body</th>
               <td>{post.body}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>User id</th>
               <td>{post.userId}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>Created at</th>
               <td>{timeTag(post.createdAt)}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>Updated at</th>
               <td>{timeTag(post.updatedAt)}</td>
             </tr>

@@ -60,10 +60,17 @@ export const Success = ({ comment }: CellSuccessProps<EditCommentById>) => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit Comment {comment?.id}</h2>
+        <h2 className="rw-heading rw-heading-secondary">
+          Edit Comment {comment?.id}
+        </h2>
       </header>
       <div className="rw-segment-main">
-        <CommentForm comment={comment} onSave={onSave} error={error} loading={loading} />
+        <CommentForm
+          comment={comment}
+          onSave={onSave}
+          error={error}
+          loading={loading}
+        />
       </div>
     </div>
   )

@@ -7,6 +7,9 @@
       "packages/*"
     ]
   },
+  "scrips":{
+    "format": "npx prettier --write \"{web,api,scripts}/**/*.{js,ts,tsx,jsx}\""
+  },
   "devDependencies": {
     "@redwoodjs/core": "3.0.3",
     "prettier-plugin-tailwindcss": "^0.1.13"

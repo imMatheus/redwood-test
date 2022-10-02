@@ -4,7 +4,10 @@ import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import type { DeleteCommentMutationVariables, FindCommentById } from 'types/graphql'
+import type {
+  DeleteCommentMutationVariables,
+  FindCommentById,
+} from 'types/graphql'
 
 const DELETE_COMMENT_MUTATION = gql`
   mutation DeleteCommentMutation($id: Int!) {
@@ -81,16 +84,20 @@ const Comment = ({ comment }: Props) => {
             <tr>
               <th>Id</th>
               <td>{comment.id}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>Body</th>
               <td>{comment.body}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>Post id</th>
               <td>{comment.postId}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>Created at</th>
               <td>{timeTag(comment.createdAt)}</td>
-            </tr><tr>
+            </tr>
+            <tr>
               <th>Updated at</th>
               <td>{timeTag(comment.updatedAt)}</td>
             </tr>

@@ -11,9 +11,6 @@ import {
 import type { EditCommentById, UpdateCommentInput } from 'types/graphql'
 import type { RWGqlError } from '@redwoodjs/forms'
 
-
-
-
 type FormComment = NonNullable<EditCommentById['comment']>
 
 interface CommentFormProps {
@@ -25,13 +22,6 @@ interface CommentFormProps {
 
 const CommentForm = (props: CommentFormProps) => {
   const onSubmit = (data: FormComment) => {
-  
-    
-    
-  
-    
-    
-  
     props.onSave(data, props?.comment?.id)
   }
 
@@ -44,7 +34,7 @@ const CommentForm = (props: CommentFormProps) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-      
+
         <Label
           name="body"
           className="rw-label"
@@ -52,15 +42,14 @@ const CommentForm = (props: CommentFormProps) => {
         >
           Body
         </Label>
-        
-          <TextField
-            name="body"
-            defaultValue={props.comment?.body}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <TextField
+          name="body"
+          defaultValue={props.comment?.body}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="body" className="rw-field-error" />
 
@@ -71,23 +60,19 @@ const CommentForm = (props: CommentFormProps) => {
         >
           Post id
         </Label>
-        
-          <NumberField
-            name="postId"
-            defaultValue={props.comment?.postId}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-        
+
+        <NumberField
+          name="postId"
+          defaultValue={props.comment?.postId}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="postId" className="rw-field-error" />
 
         <div className="rw-button-group">
-          <Submit
-            disabled={props.loading}
-            className="rw-button rw-button-blue"
-          >
+          <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
           </Submit>
         </div>
